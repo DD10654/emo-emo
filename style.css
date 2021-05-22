@@ -1,0 +1,37 @@
+.container-fluid {
+    background-color:darkkhaki;
+    color: green;
+}
+
+span {
+    font-size: 30px;
+}
+
+.heading {
+    font-size: 18px;
+    border-radius: 10px;
+    letter-spacing: 10px;
+}
+
+#camera, #result {
+    width:350px;
+    height:300px;
+    border: 1px solid black;
+}
+
+.emotionName {
+    font-size: 40px;
+    color: black;
+}
+
+.emoji {
+    font-size: 48px
+}
+
+label {
+    background-color: coral;
+    color: darkcyan;
+    font-size: 14px;
+    padding: 6px;
+    border-radius: 10px;
+}
