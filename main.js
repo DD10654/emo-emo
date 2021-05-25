@@ -1,3 +1,8 @@
+//Declairing Variables
+
+var prediction1;
+var prediction2;
+
 //Setting The Webcam and Taking The Camera Reference!
 
 Webcam.set(
@@ -41,4 +46,52 @@ function speak() {
     speakData2 = " and the second prediction is " + prediction2;
     var utter = new SpeechSynthesisUtterance(speakData1 + speakData2);
     speech.speak(utter);
+}
+
+//Compairing The Image With The Modal And Displaying The Results
+
+function check() {
+    img = document.getElementById("snap");
+    classifier.classify(img, gotresult);
+}
+
+function gotresult(error, result) {
+    if (error) {
+        console.error(error);
+    }
+    else {
+        console.log(result);
+        document.getElementById("resultEmotion1").innerHTML = result[0].label;
+        document.getElementById("resultEmotion2").innerHTML = result[1].label;
+        prediction1 = result[0].label;
+        prediction2 = result[1].label;
+        speak();
+
+        if (prediction1 == "Happy") {
+            document.getElementById("resultEmoji1").innerHTML = "&#128522;";
+        }
+        if (prediction1 == "Sad") {
+            document.getElementById("resultEmoji1").innerHTML = "&#128532;";
+        }
+        if (prediction1 == "Angry") {
+            document.getElementById("resultEmoji1").innerHTML = "&#128548;";
+        }
+        if (prediction1 == "Crying") {
+            document.getElementById("resultEmoji1").innerHTML = "&#128546;";
+        }
+
+
+        if (prediction2 == "Happy") {
+            document.getElementById("resultEmoji2").innerHTML = "&#128522;";
+        }
+        if (prediction2 == "Sad") {
+            document.getElementById("resultEmoji2").innerHTML = "&#128532;";
+        }
+        if (prediction2 == "Angry") {
+            document.getElementById("resultEmoji2").innerHTML = "&#128548;";
+        }
+        if (prediction2 == "Crying") {
+            document.getElementById("resultEmoji2").innerHTML = "&#128546;";
+        }
+    }
 }
